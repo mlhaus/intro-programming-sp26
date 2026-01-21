@@ -1,0 +1,7 @@
+[project]
+name = "python-hauschildt"
+version = "0.1.0"
+description = "Kirkwood Introduction to Programming Logic Spring 2026"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
