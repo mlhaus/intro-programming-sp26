@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-import locale
-
+input 
 # set the locale for use in currency formatting
 locale.setlocale(locale.LC_ALL, 'en_US')
 
