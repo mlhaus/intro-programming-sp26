@@ -1,0 +1,19 @@
+As a [noun], I want to [verb], in order to [goal].
+
+As a human resource director, I want to enter employee data, in order to
+manage our payroll system.
+
+As a human resource director, I want to view employee data, to confirm data
+accuracy.
+
+As a human resource director, I want to update employee data, to make
+changes as necessary.
+
+As a human resource director, I want to delete employee data, to indicate
+an employee no longer works for the company.
+
+As a rec center administrator, I want to create new events, so students
+can sign up for intramural activies.
+
+As a furniture store owner, I want to update prices, in order to offer
+customers discounts or cover increasing expenses.
