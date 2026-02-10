@@ -1,4 +1,4 @@
-As a [noun], I want to [verb], in order to [goal].
+ As a [noun], I want to [verb], in order to [goal].
 
 As a human resource director, I want to enter employee data, in order to
 manage our payroll system.
