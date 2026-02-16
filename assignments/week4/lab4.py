@@ -7,6 +7,7 @@ DESCRIPTION:
 	This is the start of a menu-driven program that allows a 
     Human Resources (HR) clerk to manage employee data records.
 '''
+
 # Define all the hard-coded strings.
 program_title = "*** Employee Program ***"
 main_menu_title = "-- Main Menu --"

@@ -1,3 +1,9 @@
+# 51120
+if(temperature > 98.6):
+	fever = True
+else:
+	fever = False
+
 # 51897
 if(isIsosceles):
 	isoCount += 1

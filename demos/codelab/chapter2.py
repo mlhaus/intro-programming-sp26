@@ -1,4 +1,11 @@
-#51920
+# 51756
+name1 + "," + name2 + "," + name3
+f"{name1},{name2},{name3}"
+
+# 51037
+(exam1 + exam2) / 2
+
+# 51920
 name = input()
 age  = int(input())
 print(f"The age of {name} is {age}")

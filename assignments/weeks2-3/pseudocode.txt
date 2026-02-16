@@ -1,0 +1,8 @@
+Greet User
+Prompt Employee ID
+Prompt First Name
+Prompt Last Name
+Prompt Department Name
+Prompt Salary
+Display output as a table
+Display Goodbye
