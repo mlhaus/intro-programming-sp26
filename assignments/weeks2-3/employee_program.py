@@ -10,10 +10,12 @@ id_header = "ID"
 emp_name_header = "EMPLOYEE NAME"
 dept_header = "DEPARTMENT"
 salary_header = "SALARY"
-col_width_1 = 20
-col_width_2 = 20
-col_width_3 = 20
-col_width_4 = 20
+col1_width = 5
+col2_width = 20
+col3_width = 15
+col4_width = 12
+num_columns = 4
+table_width = col1_width + col2_width + col3_width + col4_width + (num_columns * 3 + 1)
 program_complete = "Program complete."
 
 print(f"{program_title}")
@@ -24,15 +26,13 @@ first_name = input(first_name_prompt)
 department = input(department_prompt)
 salary = float(input(salary_prompt))
 full_name = last_name + ', ' + first_name
-col_1_width = 20
-col_2_width = 20
-col_3_width = 20
-col_4_width = 20
 
 # Display output
-print(f'\n{table_name}')
-
-print(f'{id_header:^{col_1_width}s} | {emp_name_header:^{col_2_width}s} | {dept_header:^{col_3_width}s} | {salary_header:^{col_4_width}s}')
-print(f'{employee_id:<{col_1_width}s} | {full_name:<{col_2_width}s} | {department:<{col_3_width}s} | {salary:>{col_4_width},2f}')
+print(f'\n{table_name:^{table_width}s}')
+print("-" * table_width)
+print(f'| {id_header:^{col1_width}s} | {emp_name_header:^{col2_width}s} | {dept_header:^{col3_width}s} | {salary_header:^{col4_width}s} |')
+print("-" * table_width)
+print(f'| {employee_id:>{col1_width}d} | {full_name:<{col2_width}s} | {department:<{col3_width}s} | {salary:>{col4_width},.2f} |')
+print("-" * table_width)
 
 print(f'\n{program_complete}\n')
