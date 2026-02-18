@@ -1,0 +1,6 @@
+User Story
+As a Human Resources (HR) clerk, I wish to add new employee records.
+As a Human Resources (HR) clerk, I wish to view all employee records.
+As a Human Resources (HR) clerk, I wish to view a single employee record.
+As a Human Resources (HR) clerk, I wish to update a single employee record.
+As a Human Resources (HR) clerk, I wish to delete a single employee record.

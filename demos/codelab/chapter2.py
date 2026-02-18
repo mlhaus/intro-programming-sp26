@@ -1,3 +1,6 @@
+# 51020
+avg = (a + b + c) / 3
+
 # 51756
 name1 + "," + name2 + "," + name3
 f"{name1},{name2},{name3}"

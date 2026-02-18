@@ -1,0 +1,10 @@
+Pseudocode
+COMPUTER prints program title (output)
+COMPUTER runs continually until the HR Clerk enters Q or q to quit
+    COMPUTER prints a menu of five options (output)
+    COMPUTER prompts the user for an option (output)
+    HR Clerk enters an option (input - string)
+    COMPUTER prints option message (output)
+    COMPUTER prompts the HR Clerk to press Enter to continue (output)
+    HR Clerk presses Enter (input - empty string)
+COMPUTER prints program complete (output)
