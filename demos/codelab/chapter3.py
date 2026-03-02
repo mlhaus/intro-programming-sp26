@@ -1,3 +1,43 @@
+# 51259
+sum = 0
+for i in range(1, n + 1):
+	sum += i
+avg = sum / n
+
+# 51941
+evenSum = 0
+oddSum = 0
+evenCount = 0
+oddCount = 0
+num = int(input())
+while(num > 0):
+	if(num % 2 == 0):
+		evenSum += num
+		evenCount += 1
+	else:
+		oddSum += num
+		oddCount += 1
+	num = int(input())
+print(f"{evenSum} {oddSum} {evenCount} {oddCount}")
+
+# 51936
+response = input()
+while (response.lower() != 'y' and response.lower() != 'n'):
+	response = input()
+
+# 51913
+recalled = modelYear >= 2001 and modelYear <= 2006
+
+# 51167
+x % 2 == 0
+
+# 51905
+recalled = (modelName == "Extravagant" and 1999 <= modelYear <= 2002) or \ 
+			(modelName == "Guzzler" and 2004 <= modelYear <= 2007)
+
+# 51065
+not is_empty and (number_of_credits == 1 or number_of_credits == 3)
+
 # 51944
 val1 = input()
 n = 0
