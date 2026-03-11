@@ -4,7 +4,7 @@ This module contains functions for getting user input from the keyboard
 
 import math
 from datetime import datetime
-from ui_helpers import show_message
+from ui_helpers import show_message, show_error
 
 def get_choice(options : list) -> int:
     """
@@ -24,9 +24,18 @@ def get_float(prompt: str, required = True, min = -math.inf, max = math.inf) -> 
     Output: The value entered by the user
     """
     value = math.inf # if math.inf is returned, that indicates no value was entered.
+    # were the min or max values changed?
+    min_set = min != -math.inf
+    max_set = max != math.inf
     while(True):
         print("\n" + prompt, end="") # Prints a blank line followed the prompt
         print(" (*)" if required else "", end="") # Prints an asterisk if the input is required
+        if(min_set):
+            print(f" [min {min}", end="") # Display min value in the prompt
+        if(max_set):
+            print(f"-max {max}]", end="") # Display max value in the prompt
+        if(min_set and not max_set):
+            print("]", end="")
         print(": ", end="") # Prints a separator between the prompt and the user's input
         try:
             value = float(input()) # Gets the value from user input
@@ -35,6 +44,12 @@ def get_float(prompt: str, required = True, min = -math.inf, max = math.inf) -> 
                 break # Allows the user to enter nothing if it's not required
             show_message("Invalid float value", "warning")
             continue # Restarts the loop if the value is required
+        if(value < min):
+            show_error("Value too low")
+            continue # Restart the loop if the value entered is too low
+        if(value > max):
+            show_error("Value too high")
+            continue # Restart the loop if the value entered is too high
         break # Ends the loop if a valid value is entered
     return value
         
@@ -81,8 +96,10 @@ def get_bool(prompt: str, required = True) -> bool:
     pass
 
 def main():
-    print(get_float("What is the current temperature?", False))
-    print(get_float("What is your salary?"))
+    print(get_float("Enter your height in inches", min = 0)) # Prompt for a required non-negative value
+    print(get_float("Enter your GPA", min = 0, max = 4)) # Prompt for a required value within a range
+    print(get_float("What is the current temperature?", False)) # Prompt for an optional value
+    print(get_float("What is your salary?")) # Prompt for a required value, any number is acceptable.
 
 if __name__ == "__main__":
     main()

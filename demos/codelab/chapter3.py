@@ -1,3 +1,21 @@
+# 51942
+landCount = 0
+airCount = 0
+waterCount = 0
+val = input()
+while(val != "xxxxx"):
+	if(val == "land"):
+		landCount += 1
+	elif(val == "air"):
+		airCount += 1
+	elif(val == "water"):
+		waterCount += 1
+	val = input()
+print(f"land:{landCount}")
+print(f"air:{airCount}")
+print(f"water:{waterCount}")
+
+
 # 51259
 sum = 0
 for i in range(1, n + 1):

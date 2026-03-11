@@ -2,7 +2,7 @@
 A class to format data to a table
 """
 
-def print_table(table_data: list):
+def print_table(table_data: list) -> None:
     """
     Displays a table of data, formatted in rows and columns.
     INPUTS: table_data, a two-dimensional list of data
