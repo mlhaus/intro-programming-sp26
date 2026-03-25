@@ -2,13 +2,15 @@
 The functions in this module will help us define User Interface appearance
 '''
 
+CONSOLE_WIDTH = 80
+
 def show_program_title(title: str) -> None:
     """
     Displays the formatted program title
     INPUT: title, A string with the title of the program
     OUTPUT: None
     """
-    pass
+    show_message(f'\n{"** " + title + " **":^{CONSOLE_WIDTH}}')
 
 def show_menu(menu_title: str, options: list) -> None:
     """
@@ -26,7 +28,7 @@ def show_section_title(title: str) -> None:
     INPUT: title, A string with title of the section
     OUTPUT: None
     """
-    pass
+    show_message(f'{"-- " + title + " --":^{CONSOLE_WIDTH}}')
 
 def show_error(message: str) -> None:
     """
@@ -70,7 +72,9 @@ def main():
     # show_message("You have entered 10 employees", "warning")
     # show_message("New employee created", "success")
     # show_message("It's a great day to be alive!")
-    show_error("Number cannot be negative")
+    # show_error("Number cannot be negative")
+    show_program_title("Employee Management Program")
+    show_section_title("Add a new employee")
 
 if __name__ == "__main__":
     main()

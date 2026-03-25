@@ -1,3 +1,17 @@
+# 51147
+cube_volume = to_the_power_of(cube_side, 3)
+
+# 51141
+def powerTo(base: float, exponent: int):
+	if(exponent >= 0):
+		return base ** exponent
+	else:
+		return 0
+
+# 51164
+def isEven(value: int) -> bool:
+	return value % 2 == 0
+	
 # 51146
 eurasia_sales = add(euro_sales, asia_sales)
 

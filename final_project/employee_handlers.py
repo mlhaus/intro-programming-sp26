@@ -1,3 +1,5 @@
+from ui_helpers import show_section_title
+
 '''
 This module contains functions related to creating, reading, updating, and deleting employee records
 '''
@@ -8,7 +10,7 @@ def add_employee():
     INPUTS: None
     OUTPUT: None
     """
-    pass
+    show_section_title("Add an employee")
 
 def get_employee_data():
     """
@@ -24,7 +26,7 @@ def get_all_employees():
     INPUTS: None
     OUTPUT: None
     """
-    pass
+    show_section_title("Show all employees")
 
 def get_employee():
     """
@@ -32,7 +34,7 @@ def get_employee():
     INPUTS: None
     OUTPUT: None
     """
-    pass
+    show_section_title("Show one employee")
 
 def update_employee():
     """
@@ -40,7 +42,7 @@ def update_employee():
     INPUTS: None
     OUTPUT: None
     """
-    pass
+    show_section_title("Update one employee")
 
 def delete_employee():
     """
@@ -48,7 +50,7 @@ def delete_employee():
     INPUTS: None
     OUTPUT: None
     """
-    pass
+    show_section_title("Delete one employee")
 
 def main():
     pass
