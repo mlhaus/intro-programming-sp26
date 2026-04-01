@@ -1,6 +1,6 @@
 import ui_helpers as ui
 import employee_handlers as eh
-from user_input import get_int
+from user_input import get_choice
 '''
 This is the main module for the Employee demo project
 '''
@@ -11,8 +11,13 @@ def main():
     Output: none
     """
     ui.show_program_title("Employee Management Program")
+    menu_options = ["Add an employee", "Get all employees", "Get an employee",
+                    "Update an employee", "Delete an employee", "Quit"]
     while(True):
-        choice = get_int("Choice", True, 1, 6)
+        print("\n--- MAIN MENU ---")
+        choice = get_choice(menu_options)
+        # Don't display the section title if the user chooses to quit
+        ui.show_section_title(menu_options[choice - 1])
         if(choice == 1):
             eh.add_employee()
         elif(choice == 2):
@@ -27,7 +32,8 @@ def main():
             # To do: implement the confirm_quit functionality
             ui.confirm_quit()
             break
-        ui.press_enter_to_continue()
+        
+        
     ui.show_message("Program complete. Have a great day.")
 
 

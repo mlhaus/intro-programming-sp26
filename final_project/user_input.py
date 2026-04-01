@@ -12,7 +12,10 @@ def get_choice(options : list) -> int:
     Inputs: options, a list of strings
     Output: The value entered by the user
     """
-    pass
+    # See page 171 for info on the enumerate function
+    for i, option in enumerate(options, start=1):
+        print(f"{i}) {option}")
+    return get_int("Choice", True, 1, len(options))
 
 def get_float(prompt: str, required = True, min = -math.inf, max = math.inf) -> float:
     """
@@ -172,7 +175,7 @@ def main():
     # print(get_int("Guess a number between 1 and 10", True, 1, 10))
     # print(get_str("What is your name?"))
     # print(get_str("What is your name?", False))
-    # print(get_date("What is your birthday?"))
+    print(get_date("What is your birthday?"))
     print(get_date("What is your birthday?", False))
     print(get_date("What is your birthday?", True, date(1970, 1, 1)))
     print(get_date("What is your birthday?", True, date(1970, 1, 1), date.today()))

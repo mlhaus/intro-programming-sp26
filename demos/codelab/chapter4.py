@@ -1,3 +1,10 @@
+# 51174
+def min(num1: int, num2: int) -> int:
+	if(num1 < num2):
+		return num1
+	return num2
+
+	
 # 51147
 cube_volume = to_the_power_of(cube_side, 3)
 
