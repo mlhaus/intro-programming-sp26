@@ -4,6 +4,16 @@ The functions in this module will help us define User Interface appearance
 
 CONSOLE_WIDTH = 80
 
+def show_message(message: str, type = "") -> None:
+    """
+    Displays a message
+    INPUTS:
+        message, A string with the text to display
+        type, A string such as "error", "title", etc.
+    OUTPUT: None
+    """
+    print("\n" + (type.upper() + ": " if(type != "") else "") + message)
+
 def show_program_title(title: str) -> None:
     """
     Displays the formatted program title
@@ -39,16 +49,6 @@ def show_error(message: str) -> None:
     show_message(message, "error")
     press_enter_to_continue()
 
-def show_message(message: str, type = "") -> None:
-    """
-    Displays a message
-    INPUTS:
-        message, A string with the text to display
-        type, A string such as "error", "title", etc.
-    OUTPUT: None
-    """
-    print("\n" + (type.upper() + ": " if(type != "") else "") + message)
-
 def press_enter_to_continue() -> None:
     """
     Displays a message instructing the user to press  the Enter key and then waits until they do
@@ -64,7 +64,8 @@ def confirm_quit() -> bool:
     INPUT: None
     RETURNS: boolean True if the user confirms the quit, and False otherwise
     """
-    pass
+    from user_input import get_bool
+    return get_bool("Are you sure you want to quit?")
 
 def main():
     # press_enter_to_continue()
@@ -78,3 +79,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+'''
+confirm_quit import explanation:
+
+The error you were getting (`ImportError: cannot import name 'show_message' from 'ui_helpers'`) was caused by a **circular import**. 
+
+Here was what was happening:
+1. `main.py` imports `show_message` from `ui_helpers.py`
+2. `ui_helpers.py` starts loading and imports `get_bool` from `user_input.py`
+3. `user_input.py` starts loading and imports `show_message` and `show_error` from `ui_helpers.py`
+4. Since `ui_helpers.py` hasn't finished loading yet (it paused to load `user_input.py`), its functions aren't ready to be imported yet! When `user_input.py` tries to import `show_message`, Python throws the `ImportError`.
+
+### How I solved it
+In Python, one of the easiest ways to handle circular imports is to delay the import until it's actually needed. Since `get_bool` was only being used by the `confirm_quit()` function in `ui_helpers.py`, I moved the `from user_input import get_bool` statement from the top of the file into the `confirm_quit()` function itself. 
+
+I've made the modifications and the background command I ran confirms the program now runs without errors and displays the `--- MAIN MENU ---` properly. You should be good to go!
+'''

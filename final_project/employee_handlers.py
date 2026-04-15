@@ -2,12 +2,13 @@ from ui_helpers import press_enter_to_continue, show_message
 from user_input import get_float, get_int, get_date, get_bool, get_str
 from table import print_table
 import copy
+from employee_data import get_data, add_data, get_employee_list, get_needed_fields, get_employees_by_name
 '''
 This module contains functions related to creating, reading, updating, and deleting employee records
 '''
 
-employees = []
-employees_headings = ["Name", "DOB", "# Dependents",  "Extra withholding", "Tax exempt?"]
+# employees = []
+# employees_headings = ["Name", "Date of Birth", "# Dependents",  "Extra withholding", "Tax exempt?"]
 
 def add_employee():
     """
@@ -16,9 +17,9 @@ def add_employee():
     OUTPUT: None
     """
     # prompt the user for new employee data
-    get_employee_data()
+    employee_data = get_employee_data()
     # Print the list of employees
-    get_all_employees()
+    add_data(employee_data)
 
 def get_employee_data():
     """
@@ -27,13 +28,13 @@ def get_employee_data():
     OUTPUT: None
     """
     employee = []
+    employees_headings = get_needed_fields()
     employee.append(get_str(employees_headings[0])) # Name
     employee.append(get_date(employees_headings[1])) # DOB
     employee.append(get_int(employees_headings[2], min=0, max=10)) # Dependents
     employee.append(get_float(employees_headings[3], min=0)) # Extra Withholding
     employee.append(get_bool(employees_headings[4])) # Tax exempt
-    employees.append(employee)
-    show_message("Employee added", "success")
+    return employee
 
 
 def get_all_employees():
@@ -42,8 +43,8 @@ def get_all_employees():
     INPUTS: None
     OUTPUT: None
     """
-    employees_copy = copy.deepcopy(employees)
-    employees_copy.insert(0, employees_headings)
+    employees_copy =  sorted(get_employee_list(), key=lambda x: x[0]) # Sort alphabetically by name
+    employees_copy.insert(0, get_needed_fields())
     print_table(employees_copy)
     press_enter_to_continue()
 
@@ -53,7 +54,16 @@ def get_employee():
     INPUTS: None
     OUTPUT: None
     """
-    pass
+    name_to_search = get_str("Enter the employee's name")
+    employees = get_employees_by_name(name_to_search)
+    if(employees == None):
+        show_message("No employee records found", "error")
+    else:
+        copy_employees = sorted(employees, key=lambda x: x[0])
+        copy_employees.insert(0, get_needed_fields())
+        print_table(copy_employees)
+        press_enter_to_continue()
+
 
 def update_employee():
     """
@@ -72,6 +82,7 @@ def delete_employee():
     pass
 
 def main():
+    # To do: call get_all_employees()
     pass
 
 if __name__ == "__main__":

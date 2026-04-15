@@ -162,7 +162,20 @@ def get_bool(prompt: str, required = True) -> bool:
         required - a boolean determining if input is required
     Output: The value entered by the user (yes = True, no = False)
     """
-    pass
+    while(True):
+        print("\n" + prompt, end="") # Prints a blank line followed the prompt
+        print(" (*)" if required else "", end="") # Prints an asterisk if the input is required
+        print(" [yes or no]", end="")
+        print(": ", end="") # Prints a separator between the prompt and the user's input
+        value = input() # Gets the value from user input
+        if(not required and value == ""):
+            return None
+        if(value.lower() in ["yes", "y"]):
+            return True
+        elif(value.lower() in ["no", "n"]):
+            return False
+        else:
+            show_error("Invalid value")
 
 def main():
     # print(get_float("Enter your height in inches", min = 0)) # Prompt for a required non-negative value
@@ -175,10 +188,11 @@ def main():
     # print(get_int("Guess a number between 1 and 10", True, 1, 10))
     # print(get_str("What is your name?"))
     # print(get_str("What is your name?", False))
-    print(get_date("What is your birthday?"))
-    print(get_date("What is your birthday?", False))
-    print(get_date("What is your birthday?", True, date(1970, 1, 1)))
-    print(get_date("What is your birthday?", True, date(1970, 1, 1), date.today()))
-
+    # print(get_date("What is your birthday?"))
+    # print(get_date("What is your birthday?", False))
+    # print(get_date("What is your birthday?", True, date(1970, 1, 1)))
+    # print(get_date("What is your birthday?", True, date(1970, 1, 1), date.today()))
+    print(get_bool("Do you like pizza?"))
+    print(get_bool("Do you like pizza?", False))
 if __name__ == "__main__":
     main()
