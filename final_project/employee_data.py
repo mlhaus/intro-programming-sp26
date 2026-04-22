@@ -70,6 +70,14 @@ def update_data(updated_employee: list):
             show_message("Employee updated", "success")
             return
 
+def delete_data(employee: list):
+    '''
+    Inputs: a list containing data for a single employee record
+    '''
+    employee_list = get_employee_list()
+    employee_list.remove(employee)
+    write_file(FILE_NAME, get_needed_fields(), employee_list)
+    show_message("Employee deleted", "success")
 
 
 if __name__ == "__main__":

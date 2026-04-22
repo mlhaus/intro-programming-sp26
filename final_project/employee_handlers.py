@@ -2,7 +2,7 @@ from ui_helpers import press_enter_to_continue, show_message
 from user_input import get_float, get_int, get_date, get_bool, get_str
 from table import print_table
 import copy
-from employee_data import update_data, get_data, add_data, get_employee_list, get_needed_fields, get_employees_by_name
+from employee_data import delete_data, update_data, get_data, add_data, get_employee_list, get_needed_fields, get_employees_by_name
 import math
 from datetime import date
 '''
@@ -38,7 +38,6 @@ def get_employee_data():
     employee.append(get_bool(employees_headings[4])) # Tax exempt
     return employee
 
-
 def get_all_employees():
     """
     Handles logic for displaying all employee records
@@ -64,7 +63,6 @@ def get_employee():
         copy_employees.insert(0, get_needed_fields())
         print_table(copy_employees)
     return employees
-
 
 def update_employee():
     """
@@ -114,18 +112,20 @@ def update_employee():
 
         update_data(single_employee)
 
-
 def delete_employee():
     """
     Handles logic for deleting one employee record
     INPUTS: None
     OUTPUT: None
     """
-    pass
-
-def main():
-    # To do: call get_all_employees()
-    pass
-
-if __name__ == "__main__":
-    main()
+    employee_list = get_employee()
+    if(employee_list == None):
+        return # No employee records found, so return to the main menu
+    elif(len(employee_list) > 1):    
+        show_message("Multiple employees found. Please be more specific.", "error")
+    else:
+        # Get the only employee (at index 0)
+        single_employee = employee_list[0]
+        confirm_delete = get_bool(f"Are you sure you want to delete {single_employee[0]}?", True)
+        if(confirm_delete):
+            delete_data(single_employee)
