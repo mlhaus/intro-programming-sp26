@@ -68,7 +68,6 @@ def update_data(updated_employee: list):
             # And write the updated employee_list back to the file.
             write_file(FILE_NAME, get_needed_fields(), employee_list)
             show_message("Employee updated", "success")
-            press_enter_to_continue()
             return
 
 
