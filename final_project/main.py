@@ -1,4 +1,4 @@
-from ui_helpers import show_program_title, show_section_title, show_message, confirm_quit
+from ui_helpers import press_enter_to_continue, show_program_title, show_section_title, show_message, confirm_quit
 import employee_handlers as eh
 from user_input import get_choice
 '''
@@ -32,7 +32,7 @@ def main():
         elif(choice == 6):
             if(confirm_quit()):
                 break
-        
+        press_enter_to_continue()
         
     show_message("Program complete. Have a great day.")
 

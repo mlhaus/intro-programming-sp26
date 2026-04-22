@@ -38,7 +38,6 @@ def add_data(employee_data):
     employee_list.append(employee_data)
     write_file(FILE_NAME, get_needed_fields(), employee_list)
     show_message("Employee added", "success")
-    press_enter_to_continue()
     
 def get_employees_by_name(name: str) -> list:
     '''
@@ -53,11 +52,30 @@ def get_employees_by_name(name: str) -> list:
         return None
     return results
 
+def update_data(updated_employee: list):
+    '''
+    Inputs: a list containing data for a single employee record
+    '''
+    # employee_list is a multi-dimensional list 
+    # where each inner list is an employee record. 
+    employee_list = get_employee_list()
+    # We loop through the employee_list one employee at a time.
+    for i in range(len(employee_list)):
+        # We check if the name of the employee matches the name of the updated_employee. 
+        if employee_list[i][0] == updated_employee[0]: # If the name matches, update the record
+            # If it does, we update that record with the new data
+            employee_list[i] = updated_employee
+            # And write the updated employee_list back to the file.
+            write_file(FILE_NAME, get_needed_fields(), employee_list)
+            show_message("Employee updated", "success")
+            press_enter_to_continue()
+            return
+
 
 
 if __name__ == "__main__":
-    print(get_employee_by_name("Marc Hauschildt"))
-    print(get_employee_by_name("pig"))
+    print(get_employees_by_name("Marc Hauschildt"))
+    print(get_employees_by_name("pig"))
     # print(get_data())
     # print(get_employee_list())
     # fake_employee = ["Jane Doe", "2026-04-13", 5, 100, False]

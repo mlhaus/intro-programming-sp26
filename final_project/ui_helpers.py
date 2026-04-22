@@ -5,6 +5,7 @@ The functions in this module will help us define User Interface appearance
 CONSOLE_WIDTH = 80
 
 def show_message(message: str, type = "") -> None:
+    
     """
     Displays a message
     INPUTS:
